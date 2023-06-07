@@ -30,27 +30,27 @@ namespace TermProject.Models
                 {
                 new Book
                 {
-                   Title = "Ezel",
-                    Author = "Oscar Wilde",
-                    Description = "bla bla",
+                   Title = "Kinyas ve Kayra",
+                    Author = "Hakan Günday",
+                    Description = "Kinyas ve Kayranın hayatı",
                     PageCount = 123,
                     Price = 12312312,
                     Category = dummyCategories[1],
                 },
                 new Book
                 {
-                   Title = "Ezel",
-                    Author = "Oscar Wilde",
-                    Description = "bla bla",
+                   Title = "Fareler vs İnsanlar",
+                    Author = "Franz Kafka",
+                    Description = "fare olmuş adam",
                     PageCount = 123,
                     Price = 12312312,
                     Category = dummyCategories[1],
                 },
                 new Book
                 {
-                    Title = "Ezel",
-                    Author = "Oscar Wilde",
-                    Description = "bla bla",
+                    Title = "Aşk",
+                    Author = "Elif Şafak",
+                    Description = "Mevlana & Şemsi",
                     PageCount = 123,
                     Price = 12312312,
                     Category = dummyCategories[0],

@@ -12,10 +12,10 @@ namespace TermProject.Models
         public User User { get; set; }
 
         public int BookId { get; set; }
-        public Book book { get; set; }
+        public Book Book { get; set; }
 
-        public int count { get; set; }
+        public int Count { get; set; }
         public int OrderId { get; set; }
-        public Order? order { get; set; }
+        public Order? Order { get; set; }
     }
 }
