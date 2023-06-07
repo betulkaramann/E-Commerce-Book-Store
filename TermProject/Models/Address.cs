@@ -7,7 +7,7 @@ namespace TermProject.Models
 {
     public class Address
     {
-        public int AddressId { get; set; }
+        public long AddressId { get; set; }
 
         public string City { get; set; }
 

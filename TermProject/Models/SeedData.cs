@@ -8,8 +8,6 @@ namespace TermProject.Models
             context.Database.Migrate();
             if (context.Books.Count() == 0 && context.Categories.Count() == 0)
             {
-
-
                 List<Category> dummyCategories = new List<Category>() {
                   new Category
                 {
@@ -20,8 +18,6 @@ namespace TermProject.Models
                     Title = "Şiir"
                 }
             };
-
-
                 List<Book> dummyBooks = new List<Book>()
                 {
                 new Book
