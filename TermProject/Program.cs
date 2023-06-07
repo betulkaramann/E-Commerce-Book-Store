@@ -23,6 +23,9 @@ builder.Services.AddDbContext<AppDbContext>(
 
 var app = builder.Build();
 
+var context = app.Services.CreateScope().ServiceProvider.GetRequiredService<AppDbContext>();
+SeedData.SeedDatabase(context);
+
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
