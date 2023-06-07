@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Betul\\Desktop\\3. Sınıf\\Web Application Development\\TermProject\\TermProject\\TermProject.csproj": {}
+    "/Users/hasaneke/Development/net/Assignments/E-Commerce-Book-Store/TermProject/TermProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Betul\\Desktop\\3. Sınıf\\Web Application Development\\TermProject\\TermProject\\TermProject.csproj": {
+    "/Users/hasaneke/Development/net/Assignments/E-Commerce-Book-Store/TermProject/TermProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Betul\\Desktop\\3. Sınıf\\Web Application Development\\TermProject\\TermProject\\TermProject.csproj",
+        "projectUniqueName": "/Users/hasaneke/Development/net/Assignments/E-Commerce-Book-Store/TermProject/TermProject.csproj",
         "projectName": "TermProject",
-        "projectPath": "C:\\Users\\Betul\\Desktop\\3. Sınıf\\Web Application Development\\TermProject\\TermProject\\TermProject.csproj",
-        "packagesPath": "C:\\Users\\Betul\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Betul\\Desktop\\3. Sınıf\\Web Application Development\\TermProject\\TermProject\\obj\\",
+        "projectPath": "/Users/hasaneke/Development/net/Assignments/E-Commerce-Book-Store/TermProject/TermProject.csproj",
+        "packagesPath": "/Users/hasaneke/.nuget/packages/",
+        "outputPath": "/Users/hasaneke/Development/net/Assignments/E-Commerce-Book-Store/TermProject/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Betul\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/hasaneke/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -58,6 +56,10 @@
               "target": "Package",
               "version": "[7.0.5, )"
             },
+            "Microsoft.Extensions.Caching.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[6.0.13, )"
@@ -74,6 +76,20 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.14, 6.0.14]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.osx-arm64",
+              "version": "[6.0.14, 6.0.14]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.14, 6.0.14]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -82,7 +98,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.201/RuntimeIdentifierGraph.json"
         }
       }
     }
