@@ -7,7 +7,7 @@ namespace TermProject.Models
 {
     public class CreditCard
     {
-        public int Id { get; set; }
+        public int CreditCardId { get; set; }
 
         public float number { get; set; }
 
