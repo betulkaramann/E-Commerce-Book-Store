@@ -16,7 +16,15 @@ namespace TermProject.Models
                  new Category
                 {
                     Title = "Şiir"
-                }
+                },
+                 new Category
+                {
+                    Title = "Makale"
+                },
+                new Category
+                {
+                    Title = "Deneme"
+                },
             };
                 List<Book> dummyBooks = new List<Book>()
                 {
@@ -45,8 +53,9 @@ namespace TermProject.Models
                     Description = "bla bla",
                     PageCount = 123,
                     Price = 12312312,
-                    Category = dummyCategories[1],
-                },};
+                    Category = dummyCategories[0],
+                },
+                };
                 context.Books.AddRange(dummyBooks);
                 context.Categories.AddRange(dummyCategories);
             }
