@@ -13,6 +13,11 @@ namespace TermProject.Models
 
         public string FullName { get; set; }
 
-        public string Address { get; set; }
+        public int AddressId { get; set; }
+        public Address Address { get; set; }
+
+        public int CreditCardId { get; set; }
+        public Address CreditCard { get; set; }
+
     }
 }
