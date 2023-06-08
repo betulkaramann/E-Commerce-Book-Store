@@ -1,6 +1,9 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
+using TermProject.InfraStructure.Extention;
 using TermProject.Models;
+using TermProject.Services;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,12 +17,8 @@ builder.Services.AddControllersWithViews();
 //        option.LoginPath= "/Access/Login";
 //    });
 
-builder.Services.AddDbContext<AppDbContext>(
-    option =>
-    {
-        option.UseSqlServer(builder.Configuration.GetConnectionString("SqlCon"));
-    }
-    );
+builder.Services.ConfigureDbContext(builder.Configuration);
+builder.Services.ConfigureIdentity();
 
 var app = builder.Build();
 
@@ -43,5 +42,8 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+
+app.ConfigureDefaultAdminUser();
 
 app.Run();
