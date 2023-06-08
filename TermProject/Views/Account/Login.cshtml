@@ -4,34 +4,41 @@
     ViewData["Title"] = "Login";
 }
 
-<div class="text-center mt-1">
-    <h6 class="display-3">
-        Login Page
+<div class="text-center my-5">
+
+    <h6 class="display-6">
+        <br />
+        Login
     </h6>
 </div>
-
-<hr />
 <div class="row">
     <div class="col-md-3></div>
-    <div class="col-md-10">
-        <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="col-md-6">
+        <div>
+            <div asp-validation-summary="All" class="text-danger"></div>
+        </div>
 
         <form asp-action="Login" method="post">
-            <input type ="hidden" asp-for="ReturnUrl"/>
+            <input type="hidden" asp-for="ReturnUrl" />
 
             <div asp-validation-summary="All" class="text-danger"></div>
-            <div class="form-group my-2">
+            <div class="form-group my-3">
                 <label asp-for="LoginEmail" class="control-label"> Email</label>
                 <input asp-for="LoginEmail" class="form-control" />
-                <span asp-validation-for="LoginEmail" class="text-danger"></span>
+
             </div>
-            <div class="form-group my-2">
-                <label asp-for="LoginPassword" class="control-label"> Password </label>
-                <input asp-for="LoginPassword" class="form-control"  type="password" />
-                <span asp-validation-for="LoginPassword" class="text-danger"></span>
+
+            <div class="form-group my-3">
+                <label asp-for="LoginPassword">Password</label>
+                <input type="password" asp-for="LoginPassword" class="form-control" />
+
+
             </div>
-            <div class="form-group">
-                <input type="submit" value="Login" class="btn btn-primary"  />
+            <div class="form-group my-3 d-flex justify-content-center">
+                <button type="submit" value="Login" class="btn btn-primary">
+                    <i class="fa-solid fa-user-plus"></i>
+                    Login
+                </button>
             </div>
         </form>
     </div>
@@ -41,7 +48,12 @@
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
+<div>
+    Don't have an account? Click here for <a asp-action="Register"> registration</a>
+</div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @section Scripts {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using TermProject.Entities;
 using TermProject.Models;
 
 namespace TermProject.Controllers
@@ -52,8 +53,40 @@ namespace TermProject.Controllers
             return Redirect(ReturnUrl);
         }
 
-        public IActionResult Register()
+        public IActionResult Register() { 
+            return View();
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Register([FromForm] RegisterDto model)
         {
+            var user = new IdentityUser
+            {
+                Email = model.Email,
+                UserName = model.FullName,
+            };
+
+            var result = await userManager
+                .CreateAsync(user, model.Password);
+
+            if (result.Succeeded)
+            {
+                var roleResult = await userManager
+                    .AddToRoleAsync(user, "User");
+
+                if (roleResult.Succeeded)
+                    return RedirectToAction("Login", new { ReturnUrl = "/" });
+            }
+            else
+            {
+                foreach (var err in result.Errors)
+                {
+                    ModelState.AddModelError("", err.Description);
+                }
+            }
+
             return View();
         }
     }
