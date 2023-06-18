@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "L5QWOCESEGA8fboSyxqAYI25M6uV8mQMoFu+XtUpgDjEYPoV5uFF5up4LgLg+Df3kdmoYBcC4YIyUUCNcrDxyQ==",
+  "dgSpecHash": "ttgoZgq52KeVOD5d1lZ91hUnKy0Fjc0NcZSUHplWPhIyfC8WMqWTNL+M6f4drbQqctgiGNEX7/103Ir8zYfAJw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Betul\\Desktop\\3. Sınıf\\Web Application Development\\TermProject\\TermProject\\TermProject.csproj",
+  "projectFilePath": "D:\\3. Sınıf\\Web Application Development\\TermProject\\TermProject\\TermProject.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Betul\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Betul\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
