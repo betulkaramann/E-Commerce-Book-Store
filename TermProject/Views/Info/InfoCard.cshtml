@@ -23,7 +23,7 @@
                 <p><strong>Açıklama:</strong></p>
                 <p>@Model.Description</p>
             </div>
-            <a class="btn btn-outline-info" asp-controller="Cart" asp-action="CartContent">
+            <a class="btn btn-outline-info" asp-controller="Info" asp-action="AddToCard" asp-route-id="@Model.BookId">
                 Add Cart
             </a>
         </div>
