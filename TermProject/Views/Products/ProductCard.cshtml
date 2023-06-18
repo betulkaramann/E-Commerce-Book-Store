@@ -1,16 +1,15 @@
-﻿
-@model Book
+﻿@model Book
 
 <div class="col-md-4 my-3">
     <div class="card" style="width: 18rem;">
         <div class="card-body">
-            <img src=@Model.ImageUrl class="card-img-top"/>
+            <img src=@Model.ImageUrl class="card-img-top" />
             <h5 class="card-title">@Model.Title</h5>
             <p class="card-text">
                 @Model.Description
-                
+
             </p>
-            <a asp-controller="Info" asp-action="Info" class="btn btn-outline-info">
+            <a asp-controller="Info" asp-action="Info" asp-route-id="@Model.BookId" class="btn btn-outline-info">
                 <i class="fa-solid fa-arrow-right"></i>
                 Go to book
             </a>

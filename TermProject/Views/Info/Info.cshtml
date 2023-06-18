@@ -1,9 +1,6 @@
-﻿@model List<Book>
+﻿@model Book
 
 <div class="row">
-    @foreach (Book book in Model)
-    {
-        <partial name="InfoCard" model="@book" />
-    }
+    <partial name="InfoCard" model="@Model" />
 </div>
 

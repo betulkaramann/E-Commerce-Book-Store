@@ -15,9 +15,20 @@ namespace TermProject.Controllers
 
         public IActionResult Info(int id)
         {
-            Console.WriteLine("id burdaaa : " + id.ToString());
-            var books = _context.Books.ToList();
-            return View(books);
+            Book book = _context.Books.First((book) => book.BookId == id);
+            return View(book);
+        }
+
+        public IActionResult AddToCard(int id)
+        {
+            Book book = _context.Books.First((book) => book.BookId == id);
+            _context.Carts.Add(new Cart()
+            {
+                Book = book,
+                Count = 1,
+            });
+            return View(book);
         }
     }
 }
+
