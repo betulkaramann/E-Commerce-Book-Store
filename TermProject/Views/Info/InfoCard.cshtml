@@ -1,0 +1,28 @@
+﻿@model Book
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Information</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <hr />
+        <div class="row">
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-8">
+                <h3>@Model.Title</h3>
+                <p><strong>Yazar:</strong> @Model.Author</p>
+                <p><strong>Fiyat:</strong> @Model.Price</p>
+                <p><strong>Açıklama:</strong></p>
+                <p>@Model.Description</p>
+            </div>
+            <a class="btn btn-outline-info" asp-controller="Cart" asp-action="CartContent">
+                Add Cart
+            </a>
+        </div>
+    </div>
+</body>
+</html>

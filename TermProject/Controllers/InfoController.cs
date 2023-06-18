@@ -1,12 +1,23 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using TermProject.Models;
+using static System.Reflection.Metadata.BlobBuilder;
 
 namespace TermProject.Controllers
 {
     public class InfoController : Controller
     {
-        public IActionResult Info()
+        private AppDbContext _context;
+
+        public InfoController(AppDbContext context)
         {
-            return View();
+            _context = context;
+        }
+
+        public IActionResult Info(int id)
+        {
+            Console.WriteLine("id burdaaa : " + id.ToString());
+            var books = _context.Books.ToList();
+            return View(books);
         }
     }
 }
