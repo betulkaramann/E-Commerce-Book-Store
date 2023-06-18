@@ -12,13 +12,8 @@ using TermProject.Models;
 namespace TermProject.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-<<<<<<<< HEAD:TermProject/Migrations/20230618113149_initial.Designer.cs
-    [Migration("20230618113149_initial")]
-    partial class initial
-========
-    [Migration("20230618114338_init")]
+    [Migration("20230618114816_init")]
     partial class init
->>>>>>>> main:TermProject/Migrations/20230618114338_init.Designer.cs
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -59,25 +54,15 @@ namespace TermProject.Migrations
                     b.HasData(
                         new
                         {
-<<<<<<<< HEAD:TermProject/Migrations/20230618113149_initial.Designer.cs
-                            Id = "c00deec5-aeb4-4338-b21f-827c9f6edb6d",
-                            ConcurrencyStamp = "00e745ef-0cfc-497e-b791-09d6d7ed05f4",
-========
-                            Id = "8f84cb69-c7a8-405b-8044-edbee3b9f129",
-                            ConcurrencyStamp = "7ed6015b-6487-42ef-9d5f-02bddc36729f",
->>>>>>>> main:TermProject/Migrations/20230618114338_init.Designer.cs
+                            Id = "991780d4-cb6f-4bb2-81fb-58324c0f26e1",
+                            ConcurrencyStamp = "560d7bcb-c795-404f-a402-f472e2222ed3",
                             Name = "user",
                             NormalizedName = "USER"
                         },
                         new
                         {
-<<<<<<<< HEAD:TermProject/Migrations/20230618113149_initial.Designer.cs
-                            Id = "80a4f188-0af2-464f-ad29-a43939a8406f",
-                            ConcurrencyStamp = "3eba0c9a-36be-45c7-b419-f2cce4e02cbd",
-========
-                            Id = "b6a94667-f7d3-4192-94c8-d8d5c903a55c",
-                            ConcurrencyStamp = "1119f337-0b5c-418c-a250-2acacaf69da4",
->>>>>>>> main:TermProject/Migrations/20230618114338_init.Designer.cs
+                            Id = "d2f5faeb-74f0-41a9-bb6b-0b99f4550463",
+                            ConcurrencyStamp = "2be06a5f-d589-43fa-9978-feded06bc3ed",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         });

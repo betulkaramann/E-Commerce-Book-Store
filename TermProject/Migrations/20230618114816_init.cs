@@ -8,25 +8,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace TermProject.Migrations
 {
     /// <inheritdoc />
-<<<<<<<< HEAD:TermProject/Migrations/20230618113149_initial.cs
-    public partial class initial : Migration
-========
     public partial class init : Migration
->>>>>>>> main:TermProject/Migrations/20230618114338_init.cs
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.RenameColumn(
-                name: "Id",
-                table: "Categories",
-                newName: "CategoryId");
-
-            migrationBuilder.RenameColumn(
-                name: "Id",
-                table: "Books",
-                newName: "BookId");
-
             migrationBuilder.CreateTable(
                 name: "Addresses",
                 columns: table => new
@@ -82,6 +68,19 @@ namespace TermProject.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Categories",
+                columns: table => new
+                {
+                    CategoryId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Categories", x => x.CategoryId);
                 });
 
             migrationBuilder.CreateTable(
@@ -254,6 +253,30 @@ namespace TermProject.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Books",
+                columns: table => new
+                {
+                    BookId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Author = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Price = table.Column<double>(type: "float", nullable: false),
+                    PageCount = table.Column<int>(type: "int", nullable: false),
+                    CategoryId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Books", x => x.BookId);
+                    table.ForeignKey(
+                        name: "FK_Books_Categories_CategoryId",
+                        column: x => x.CategoryId,
+                        principalTable: "Categories",
+                        principalColumn: "CategoryId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Carts",
                 columns: table => new
                 {
@@ -293,13 +316,8 @@ namespace TermProject.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-<<<<<<<< HEAD:TermProject/Migrations/20230618113149_initial.cs
-                    { "80a4f188-0af2-464f-ad29-a43939a8406f", "3eba0c9a-36be-45c7-b419-f2cce4e02cbd", "admin", "ADMIN" },
-                    { "c00deec5-aeb4-4338-b21f-827c9f6edb6d", "00e745ef-0cfc-497e-b791-09d6d7ed05f4", "user", "USER" }
-========
-                    { "8f84cb69-c7a8-405b-8044-edbee3b9f129", "7ed6015b-6487-42ef-9d5f-02bddc36729f", "user", "USER" },
-                    { "b6a94667-f7d3-4192-94c8-d8d5c903a55c", "1119f337-0b5c-418c-a250-2acacaf69da4", "admin", "ADMIN" }
->>>>>>>> main:TermProject/Migrations/20230618114338_init.cs
+                    { "991780d4-cb6f-4bb2-81fb-58324c0f26e1", "560d7bcb-c795-404f-a402-f472e2222ed3", "user", "USER" },
+                    { "d2f5faeb-74f0-41a9-bb6b-0b99f4550463", "2be06a5f-d589-43fa-9978-feded06bc3ed", "admin", "ADMIN" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -340,6 +358,11 @@ namespace TermProject.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Books_CategoryId",
+                table: "Books",
+                column: "CategoryId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Carts_BookId",
@@ -403,23 +426,19 @@ namespace TermProject.Migrations
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
+                name: "Books");
+
+            migrationBuilder.DropTable(
                 name: "Orders");
 
             migrationBuilder.DropTable(
                 name: "User");
 
             migrationBuilder.DropTable(
+                name: "Categories");
+
+            migrationBuilder.DropTable(
                 name: "Addresses");
-
-            migrationBuilder.RenameColumn(
-                name: "CategoryId",
-                table: "Categories",
-                newName: "Id");
-
-            migrationBuilder.RenameColumn(
-                name: "BookId",
-                table: "Books",
-                newName: "Id");
         }
     }
 }
