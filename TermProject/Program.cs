@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using TermProject.InfraStructure.Extention;
 using TermProject.Models;
-
+using TermProject.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,17 +10,10 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-//builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(
-//    option =>
-//    {
-//        option.LoginPath= "/Access/Login";
-//    });
-
 builder.Services.ConfigureDbContext(builder.Configuration);
-builder.Services.ConfigureServiceRegistration();
-builder.Services.ConfigureIdentity();
-
+builder.Services.AddScoped<IUserService, UserService>();
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -39,11 +32,9 @@ app.UseAuthentication();
 
 app.UseAuthorization();
 
+
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Account}/{action=Login}/{id?}");
-
-
-app.ConfigureDefaultAdminUser();
+    pattern: "{controller=DAccount}/{action=Login}/{id?}");
 
 app.Run();

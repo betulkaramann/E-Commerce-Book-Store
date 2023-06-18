@@ -5,7 +5,7 @@ using System.Reflection;
 
 namespace TermProject.Models
 {
-    public class AppDbContext : IdentityDbContext<IdentityUser>
+    public class AppDbContext : DbContext
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
@@ -15,12 +15,7 @@ namespace TermProject.Models
         public DbSet<CreditCard> CreditCards { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Address> Addresses { get; set; }
-        public DbSet<User> Users { get; set; }
-        protected override void OnModelCreating(ModelBuilder builder)
-        {
-            base.OnModelCreating(builder);
-            builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly()); //Entity Framework Core ile veritabanı tabloları arasındaki eşleştirme
-        }
+        public DbSet<User> User { get; set; }
 
     }
 }
