@@ -5,7 +5,8 @@ namespace TermProject.InfraStructure.Extention
 {
     public static class ApplicationExtention
     {
-        public static async void ConfigureDefaultAdminUser(this IApplicationBuilder applicationBuilder) {
+        public static async void ConfigureDefaultAdminUser(this IApplicationBuilder applicationBuilder)
+        {
 
             AppDbContext context = applicationBuilder
                 .ApplicationServices
@@ -23,7 +24,7 @@ namespace TermProject.InfraStructure.Extention
                 .ServiceProvider
                 .GetRequiredService<UserManager<IdentityUser>>();
 
-       
+
             RoleManager<IdentityRole> roleManager = applicationBuilder
                 .ApplicationServices
                 .CreateAsyncScope()
@@ -37,14 +38,11 @@ namespace TermProject.InfraStructure.Extention
                 {
                     Email = "cartcurtybu@gmail.com",
                     PhoneNumber = "5061112233",
-                    //UserName = adminUser,
+                    UserName = adminUser,
                     NormalizedEmail = adminUser,
                 };
 
                 var result = await userManager.CreateAsync(user, adminPassword);
-
-                if (!result.Succeeded)
-                    throw new Exception("Admin user could not been created.");
 
                 var roleResult = await userManager.AddToRolesAsync(user,
                     roleManager
@@ -52,9 +50,6 @@ namespace TermProject.InfraStructure.Extention
                         .Select(r => r.Name)
                         .ToList()
                 );
-
-                if (!roleResult.Succeeded)
-                    throw new Exception("System have problems with role defination for admin.");
             }
         }
     }
