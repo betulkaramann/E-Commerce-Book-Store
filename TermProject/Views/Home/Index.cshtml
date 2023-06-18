@@ -2,7 +2,23 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container text-center">
+        <h1>Hoş Geldiniz</h1>
+        <hr />
+        <p>Merhaba Kullanıcı, kitap uygulamamıza hoş geldiniz!</p>
+        <p>Size en iyi kitapları sunmak için buradayız.</p>
+        <a class="btn btn-outline-info" asp-controller="Account" asp-action="Login">
+            Please login
+        </a>
+    </div>
+</body>
+</html>
+

@@ -24,6 +24,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9SZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/hasaneke/Development/net/Assignments/E-Commerce-Book-Store/TermProject/Views/Cart/CartContent.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2FydC9DYXJ0Q29udGVudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/hasaneke/Development/net/Assignments/E-Commerce-Book-Store/TermProject/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -32,8 +36,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/hasaneke/Development/net/Assignments/E-Commerce-Book-Store/TermProject/Views/Products/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvZHVjdHMvSW5kZXguY3NodG1s
+[/Users/hasaneke/Development/net/Assignments/E-Commerce-Book-Store/TermProject/Views/Home/ProductCard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcm9kdWN0Q2FyZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/hasaneke/Development/net/Assignments/E-Commerce-Book-Store/TermProject/Views/Info/Info.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSW5mby9JbmZvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/hasaneke/Development/net/Assignments/E-Commerce-Book-Store/TermProject/Views/Role/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUm9sZS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/hasaneke/Development/net/Assignments/E-Commerce-Book-Store/TermProject/Views/Shared/Error.cshtml]
