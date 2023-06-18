@@ -51,17 +51,17 @@ namespace TermProject.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "7781373d-c4d9-4302-99a5-f6ebe7c2ee1d",
-                            ConcurrencyStamp = "05b77c90-3411-46ae-ada3-715a3752c56e",
+                            Id = "c00deec5-aeb4-4338-b21f-827c9f6edb6d",
+                            ConcurrencyStamp = "00e745ef-0cfc-497e-b791-09d6d7ed05f4",
                             Name = "user",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "8d65bc55-3e00-40f8-9895-fb2184113931",
-                            ConcurrencyStamp = "f0e758a6-8b21-4c7e-ae02-18f3b346885e",
+                            Id = "80a4f188-0af2-464f-ad29-a43939a8406f",
+                            ConcurrencyStamp = "3eba0c9a-36be-45c7-b419-f2cce4e02cbd",
                             Name = "admin",
-                            NormalizedName = "Admin"
+                            NormalizedName = "ADMIN"
                         });
                 });
 
