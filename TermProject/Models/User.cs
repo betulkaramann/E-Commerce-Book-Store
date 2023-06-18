@@ -4,7 +4,6 @@ namespace TermProject.Models
 {
     public class User
     {
-        public long UserId { get; set; }
         [Required]
         public string Email { get; set; }
 
@@ -14,11 +13,6 @@ namespace TermProject.Models
 
         public string FullName { get; set; }
 
-        public long? AddressId { get; set; }
-        public Address? Address { get; set; }
-
-        public long? CreditCardId { get; set; }
-        public Address? CreditCard { get; set; }
-
+        public string Address { get; set; }
     }
 }

@@ -2,7 +2,7 @@
 {
     public class Book
     {
-        public int BookId { get; set; }
+        public int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public string Author { get; set; }
@@ -10,7 +10,6 @@
         public int PageCount { get; set; }
         public int CategoryId { get; set; }
         public Category Category { get; set; }
-
 
     }
 }
