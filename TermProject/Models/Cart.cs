@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace TermProject.Models
 {
@@ -15,7 +16,7 @@ namespace TermProject.Models
         public Book Book { get; set; }
 
         public int Count { get; set; }
-        public int OrderId { get; set; }
+        public int? OrderId { get; set; }
         public Order? Order { get; set; }
     }
 }

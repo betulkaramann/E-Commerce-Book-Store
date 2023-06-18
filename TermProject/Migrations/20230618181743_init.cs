@@ -140,7 +140,7 @@ namespace TermProject.Migrations
                     UserId1 = table.Column<long>(type: "bigint", nullable: true),
                     BookId = table.Column<int>(type: "int", nullable: false),
                     Count = table.Column<int>(type: "int", nullable: false),
-                    OrderId = table.Column<int>(type: "int", nullable: false)
+                    OrderId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -155,8 +155,7 @@ namespace TermProject.Migrations
                         name: "FK_Carts_Orders_OrderId",
                         column: x => x.OrderId,
                         principalTable: "Orders",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Carts_User_UserId1",
                         column: x => x.UserId1,
