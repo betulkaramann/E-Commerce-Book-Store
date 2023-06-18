@@ -51,15 +51,15 @@ namespace TermProject.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "8f84cb69-c7a8-405b-8044-edbee3b9f129",
-                            ConcurrencyStamp = "7ed6015b-6487-42ef-9d5f-02bddc36729f",
+                            Id = "a77b13da-c990-4532-b398-ddea4f0e1768",
+                            ConcurrencyStamp = "7bd74566-a1c6-47d2-aa8d-7d1e4718c9f0",
                             Name = "user",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "b6a94667-f7d3-4192-94c8-d8d5c903a55c",
-                            ConcurrencyStamp = "1119f337-0b5c-418c-a250-2acacaf69da4",
+                            Id = "6c5877e9-1dde-4528-be34-6f2ec1db7362",
+                            ConcurrencyStamp = "936228a7-210b-4846-a28c-15cbafd73332",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         });
@@ -289,6 +289,9 @@ namespace TermProject.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageUrl")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("PageCount")
