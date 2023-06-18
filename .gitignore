@@ -9,3 +9,5 @@ TermProject/appsettings.Development.json
 .vs/TermProject/FileContentIndex/04b8bd0e-7b02-455c-be19-535ffe319089.vsidx
 .vs/TermProject/FileContentIndex/2e11c599-5d71-46d6-b5b2-88a0ceb571dc.vsidx
 *.vsidx
+TermProject/appsettings.Development.json
+TermProject/appsettings.json
