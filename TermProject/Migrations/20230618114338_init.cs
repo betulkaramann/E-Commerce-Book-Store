@@ -8,11 +8,39 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace TermProject.Migrations
 {
     /// <inheritdoc />
-    public partial class UpdateDb : Migration
+    public partial class init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.RenameColumn(
+                name: "Id",
+                table: "Categories",
+                newName: "CategoryId");
+
+            migrationBuilder.RenameColumn(
+                name: "Id",
+                table: "Books",
+                newName: "BookId");
+
+            migrationBuilder.CreateTable(
+                name: "Addresses",
+                columns: table => new
+                {
+                    AddressId = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    City = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    District = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PostCode = table.Column<int>(type: "int", nullable: false),
+                    Street = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DoorNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Addresses", x => x.AddressId);
+                });
+
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
@@ -53,16 +81,66 @@ namespace TermProject.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Categories",
+                name: "CreditCards",
+                columns: table => new
+                {
+                    CreditCardId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    number = table.Column<float>(type: "real", nullable: false),
+                    cvv = table.Column<int>(type: "int", nullable: false),
+                    date = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CreditCards", x => x.CreditCardId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Orders",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    TotalPrice = table.Column<double>(type: "float", nullable: false),
+                    AddressId = table.Column<int>(type: "int", nullable: false),
+                    AddressId1 = table.Column<long>(type: "bigint", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Categories", x => x.Id);
+                    table.PrimaryKey("PK_Orders", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Orders_Addresses_AddressId1",
+                        column: x => x.AddressId1,
+                        principalTable: "Addresses",
+                        principalColumn: "AddressId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "User",
+                columns: table => new
+                {
+                    UserId = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FullName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    AddressId = table.Column<long>(type: "bigint", nullable: true),
+                    CreditCardId = table.Column<long>(type: "bigint", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_User", x => x.UserId);
+                    table.ForeignKey(
+                        name: "FK_User_Addresses_AddressId",
+                        column: x => x.AddressId,
+                        principalTable: "Addresses",
+                        principalColumn: "AddressId");
+                    table.ForeignKey(
+                        name: "FK_User_Addresses_CreditCardId",
+                        column: x => x.CreditCardId,
+                        principalTable: "Addresses",
+                        principalColumn: "AddressId");
                 });
 
             migrationBuilder.CreateTable(
@@ -172,26 +250,37 @@ namespace TermProject.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Books",
+                name: "Carts",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Author = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Price = table.Column<double>(type: "float", nullable: false),
-                    PageCount = table.Column<int>(type: "int", nullable: false),
-                    CategoryId = table.Column<int>(type: "int", nullable: false)
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    UserId1 = table.Column<long>(type: "bigint", nullable: false),
+                    BookId = table.Column<int>(type: "int", nullable: false),
+                    Count = table.Column<int>(type: "int", nullable: false),
+                    OrderId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Books", x => x.Id);
+                    table.PrimaryKey("PK_Carts", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Books_Categories_CategoryId",
-                        column: x => x.CategoryId,
-                        principalTable: "Categories",
+                        name: "FK_Carts_Books_BookId",
+                        column: x => x.BookId,
+                        principalTable: "Books",
+                        principalColumn: "BookId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Carts_Orders_OrderId",
+                        column: x => x.OrderId,
+                        principalTable: "Orders",
                         principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Carts_User_UserId1",
+                        column: x => x.UserId1,
+                        principalTable: "User",
+                        principalColumn: "UserId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -200,8 +289,8 @@ namespace TermProject.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "7781373d-c4d9-4302-99a5-f6ebe7c2ee1d", "05b77c90-3411-46ae-ada3-715a3752c56e", "user", "USER" },
-                    { "8d65bc55-3e00-40f8-9895-fb2184113931", "f0e758a6-8b21-4c7e-ae02-18f3b346885e", "admin", "Admin" }
+                    { "8f84cb69-c7a8-405b-8044-edbee3b9f129", "7ed6015b-6487-42ef-9d5f-02bddc36729f", "user", "USER" },
+                    { "b6a94667-f7d3-4192-94c8-d8d5c903a55c", "1119f337-0b5c-418c-a250-2acacaf69da4", "admin", "ADMIN" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -244,9 +333,34 @@ namespace TermProject.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Books_CategoryId",
-                table: "Books",
-                column: "CategoryId");
+                name: "IX_Carts_BookId",
+                table: "Carts",
+                column: "BookId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Carts_OrderId",
+                table: "Carts",
+                column: "OrderId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Carts_UserId1",
+                table: "Carts",
+                column: "UserId1");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Orders_AddressId1",
+                table: "Orders",
+                column: "AddressId1");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_User_AddressId",
+                table: "User",
+                column: "AddressId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_User_CreditCardId",
+                table: "User",
+                column: "CreditCardId");
         }
 
         /// <inheritdoc />
@@ -268,7 +382,10 @@ namespace TermProject.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Books");
+                name: "Carts");
+
+            migrationBuilder.DropTable(
+                name: "CreditCards");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
@@ -277,7 +394,23 @@ namespace TermProject.Migrations
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "Categories");
+                name: "Orders");
+
+            migrationBuilder.DropTable(
+                name: "User");
+
+            migrationBuilder.DropTable(
+                name: "Addresses");
+
+            migrationBuilder.RenameColumn(
+                name: "CategoryId",
+                table: "Categories",
+                newName: "Id");
+
+            migrationBuilder.RenameColumn(
+                name: "BookId",
+                table: "Books",
+                newName: "Id");
         }
     }
 }
