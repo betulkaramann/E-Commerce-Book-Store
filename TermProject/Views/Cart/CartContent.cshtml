@@ -1,43 +1,18 @@
-﻿
-@{
-    
-}
+﻿@model List<Cart>
+
 <ul class="list-group">
-    <li class="list-group-item list-group-item-action list-group-item-info d-flex justify-content-between align-items-center">
-        Cras justo odio
-       <div>
-            <span id="border" class="badge badge-primary badge-pill" style="color:orange">+</span>
-            <span id="border" class="badge badge-primary badge-pill" style="color:black">14</span>
-            <span id="border" class="badge badge-primary badge-pill" style="color:orange ">-</span>
-            <span id="border" class="badge badge-primary badge-pill" style="color:black ">Delete</span>
-       </div>
-    </li>
-    <li class="list-group-item list-group-item-action list-group-item-info d-flex justify-content-between align-items-center">
-        Cras justo odio
-        <div>
-            <span id="border" class="badge badge-primary badge-pill" style="color:orange">+</span>
-            <span id="border" class="badge badge-primary badge-pill" style="color:black">14</span>
-            <span id="border" class="badge badge-primary badge-pill" style="color:orange ">-</span>
-            <span id="border" class="badge badge-primary badge-pill" style="color:black ">Delete</span>
-        </div>
-    </li>
-    <li class="list-group-item list-group-item-action list-group-item-info d-flex justify-content-between align-items-center">
-        Cras justo odio
-        <div>
-            <span id="border" class="badge badge-primary badge-pill" style="color:orange">+</span>
-            <span id="border" class="badge badge-primary badge-pill" style="color:black">14</span>
-            <span id="border" class="badge badge-primary badge-pill" style="color:orange ">-</span>
-            <span id="border" class="badge badge-primary badge-pill" style="color:black ">Delete</span>
-        </div>
-    </li>
-    <li class="list-group-item list-group-item-action list-group-item-info d-flex justify-content-between align-items-center">
-        Cras justo odio
-        <div>
-            <span id="border" class="badge badge-primary badge-pill" style="color:orange">+</span>
-            <span id="border" class="badge badge-primary badge-pill" style="color:black">14</span>
-            <span id="border" class="badge badge-primary badge-pill" style="color:orange ">-</span>
-            <span id="border" class="badge badge-primary badge-pill" style="color:black ">Delete</span>
-        </div>
-    </li>
-    
+    <h1>Sepet</h1>
+    @foreach (Cart cart in Model)
+    {
+        <li
+            class="list-group-item list-group-item-action list-group-item-info d-flex justify-content-between align-items-center">
+            <h1>@cart.Id</h1>
+            <div>
+                <span id="border" class="badge badge-primary badge-pill" style="color:orange">+</span>
+                <span id="border" class="badge badge-primary badge-pill" style="color:black">14</span>
+                <span id="border" class="badge badge-primary badge-pill" style="color:orange ">-</span>
+                <span id="border" class="badge badge-primary badge-pill" style="color:black ">Delete</span>
+            </div>
+        </li>
+    }
 </ul>

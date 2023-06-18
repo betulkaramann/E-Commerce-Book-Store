@@ -12,7 +12,7 @@ using TermProject.Models;
 namespace TermProject.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230618171351_init")]
+    [Migration("20230618180049_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -117,10 +117,10 @@ namespace TermProject.Migrations
                     b.Property<int>("OrderId")
                         .HasColumnType("int");
 
-                    b.Property<int>("UserId")
+                    b.Property<int?>("UserId")
                         .HasColumnType("int");
 
-                    b.Property<long>("UserId1")
+                    b.Property<long?>("UserId1")
                         .HasColumnType("bigint");
 
                     b.HasKey("Id");
@@ -259,9 +259,7 @@ namespace TermProject.Migrations
 
                     b.HasOne("TermProject.Models.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserId1")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserId1");
 
                     b.Navigation("Book");
 

@@ -33,6 +33,7 @@ namespace TermProject.Models
                    Title = "Kinyas ve Kayra",
                     Author = "Hakan Günday",
                     Description = "Kinyas ve Kayranın hayatı",
+                    ImageUrl = "https://img.kitapyurdu.com/v1/getImage/fn:210061/wh:true/wi:800",
                     PageCount = 123,
                     Price = 12312312,
                     Category = dummyCategories[1],
@@ -42,6 +43,7 @@ namespace TermProject.Models
                    Title = "Fareler vs İnsanlar",
                     Author = "Franz Kafka",
                     Description = "fare olmuş adam",
+                    ImageUrl = "https://img.kitapyurdu.com/v1/getImage/fn:210061/wh:true/wi:800",
                     PageCount = 123,
                     Price = 12312312,
                     Category = dummyCategories[1],
@@ -50,6 +52,7 @@ namespace TermProject.Models
                 {
                     Title = "Aşk",
                     Author = "Elif Şafak",
+                    ImageUrl = "https://img.kitapyurdu.com/v1/getImage/fn:210061/wh:true/wi:800",
                     Description = "Mevlana & Şemsi",
                     PageCount = 123,
                     Price = 12312312,

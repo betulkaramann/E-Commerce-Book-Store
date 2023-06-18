@@ -18424,6 +18424,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/Users/hasaneke/Development/net/Assignments/E-Commerce-Book-Store/TermProject/Views/Info/AddToCard.cshtml",
+      "TargetPath": "Views\\Info\\AddToCard.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/hasaneke/Development/net/Assignments/E-Commerce-Book-Store/TermProject/Views/Info/Info.cshtml",
       "TargetPath": "Views\\Info\\Info.cshtml",
       "FileKind": "mvc"

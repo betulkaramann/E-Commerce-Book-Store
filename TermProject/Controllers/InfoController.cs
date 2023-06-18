@@ -19,7 +19,7 @@ namespace TermProject.Controllers
             return View(book);
         }
 
-        public IActionResult AddToCard(int id)
+        public IActionResult AddToCard(int? id)
         {
             Book book = _context.Books.First((book) => book.BookId == id);
             _context.Carts.Add(new Cart()
@@ -27,7 +27,7 @@ namespace TermProject.Controllers
                 Book = book,
                 Count = 1,
             });
-            return View(book);
+            return RedirectToAction("CartContent", "Cart");
         }
     }
 }
