@@ -51,15 +51,25 @@ namespace TermProject.Migrations
                     b.HasData(
                         new
                         {
+<<<<<<< HEAD
                             Id = "c00deec5-aeb4-4338-b21f-827c9f6edb6d",
                             ConcurrencyStamp = "00e745ef-0cfc-497e-b791-09d6d7ed05f4",
+=======
+                            Id = "8f84cb69-c7a8-405b-8044-edbee3b9f129",
+                            ConcurrencyStamp = "7ed6015b-6487-42ef-9d5f-02bddc36729f",
+>>>>>>> main
                             Name = "user",
                             NormalizedName = "USER"
                         },
                         new
                         {
+<<<<<<< HEAD
                             Id = "80a4f188-0af2-464f-ad29-a43939a8406f",
                             ConcurrencyStamp = "3eba0c9a-36be-45c7-b419-f2cce4e02cbd",
+=======
+                            Id = "b6a94667-f7d3-4192-94c8-d8d5c903a55c",
+                            ConcurrencyStamp = "1119f337-0b5c-418c-a250-2acacaf69da4",
+>>>>>>> main
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         });
@@ -236,13 +246,49 @@ namespace TermProject.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("TermProject.Models.Address", b =>
+                {
+                    b.Property<long>("AddressId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("AddressId"));
+
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("District")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DoorNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PostCode")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Street")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("AddressId");
+
+                    b.ToTable("Addresses");
+                });
+
             modelBuilder.Entity("TermProject.Models.Book", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("BookId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BookId"));
 
                     b.Property<string>("Author")
                         .IsRequired()
@@ -265,14 +311,14 @@ namespace TermProject.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("BookId");
 
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Books");
                 });
 
-            modelBuilder.Entity("TermProject.Models.Category", b =>
+            modelBuilder.Entity("TermProject.Models.Cart", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -280,13 +326,128 @@ namespace TermProject.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int>("BookId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Count")
+                        .HasColumnType("int");
+
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<long>("UserId1")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BookId");
+
+                    b.HasIndex("OrderId");
+
+                    b.HasIndex("UserId1");
+
+                    b.ToTable("Carts");
+                });
+
+            modelBuilder.Entity("TermProject.Models.Category", b =>
+                {
+                    b.Property<int>("CategoryId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategoryId"));
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("CategoryId");
 
                     b.ToTable("Categories");
+                });
+
+            modelBuilder.Entity("TermProject.Models.CreditCard", b =>
+                {
+                    b.Property<int>("CreditCardId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CreditCardId"));
+
+                    b.Property<int>("cvv")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<float>("number")
+                        .HasColumnType("real");
+
+                    b.HasKey("CreditCardId");
+
+                    b.ToTable("CreditCards");
+                });
+
+            modelBuilder.Entity("TermProject.Models.Order", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AddressId")
+                        .HasColumnType("int");
+
+                    b.Property<long>("AddressId1")
+                        .HasColumnType("bigint");
+
+                    b.Property<double>("TotalPrice")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AddressId1");
+
+                    b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("TermProject.Models.User", b =>
+                {
+                    b.Property<long>("UserId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("UserId"));
+
+                    b.Property<long?>("AddressId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long?>("CreditCardId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("UserId");
+
+                    b.HasIndex("AddressId");
+
+                    b.HasIndex("CreditCardId");
+
+                    b.ToTable("User");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -349,6 +510,59 @@ namespace TermProject.Migrations
                         .IsRequired();
 
                     b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("TermProject.Models.Cart", b =>
+                {
+                    b.HasOne("TermProject.Models.Book", "Book")
+                        .WithMany()
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TermProject.Models.Order", "Order")
+                        .WithMany()
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TermProject.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId1")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Book");
+
+                    b.Navigation("Order");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("TermProject.Models.Order", b =>
+                {
+                    b.HasOne("TermProject.Models.Address", "Address")
+                        .WithMany()
+                        .HasForeignKey("AddressId1")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Address");
+                });
+
+            modelBuilder.Entity("TermProject.Models.User", b =>
+                {
+                    b.HasOne("TermProject.Models.Address", "Address")
+                        .WithMany()
+                        .HasForeignKey("AddressId");
+
+                    b.HasOne("TermProject.Models.Address", "CreditCard")
+                        .WithMany()
+                        .HasForeignKey("CreditCardId");
+
+                    b.Navigation("Address");
+
+                    b.Navigation("CreditCard");
                 });
 #pragma warning restore 612, 618
         }
