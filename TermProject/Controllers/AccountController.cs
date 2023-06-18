@@ -24,23 +24,22 @@ namespace TermProject.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task <IActionResult> Login([FromForm] LoginModel loginModel)
+        public async Task<IActionResult> Login([FromForm] LoginModel loginModel)
         {
             if (ModelState.IsValid)
             {
                 IdentityUser user = await userManager.FindByNameAsync(loginModel.LoginEmail);
-
                 //kulllanıcının tanınım login olması
-                if(user != null)
+                if (user != null)
                 {
                     //oturumu burda açalım giriş yapan varsa çıkışını SignOutAsync ile sağlayalım
                     await signInManager.SignOutAsync();
-                    if ((await signInManager.PasswordSignInAsync(user,loginModel.LoginPassword,false,false)).Succeeded)
+                    if ((await signInManager.PasswordSignInAsync(user, loginModel.LoginPassword, false, false)).Succeeded)
                     {
                         return Redirect(loginModel?.ReturnUrl ?? "/");
                     }
                 }
-                ModelState.AddModelError("Error","Invalid email or password");
+                ModelState.AddModelError("Error", "Invalid email or password");
             }
 
             return View();
@@ -53,7 +52,8 @@ namespace TermProject.Controllers
             return Redirect(ReturnUrl);
         }
 
-        public IActionResult Register() { 
+        public IActionResult Register()
+        {
             return View();
         }
 
