@@ -31,10 +31,10 @@ namespace TermProject.Controllers
         [HttpPost]
         public IActionResult Login([FromForm] LoginModel loginModel)
         {
-            User? user = _dbContext.User.FirstOrDefault((user) => user.Password == loginModel.LoginPassword);
+            User? user = _dbContext.User.FirstOrDefault((user) => user.Password == loginModel.LoginPassword && user.Email == loginModel.LoginEmail);
             if (user != null)
             {
-
+                Console.WriteLine("Login Succeed");
             }
             else
             {
@@ -47,7 +47,24 @@ namespace TermProject.Controllers
         {
             return View();
         }
+        public IActionResult Register()
+        {
+            return View();
+        }
+        public IActionResult RegisterUser([FromForm] RegisterDto registerDto)
+        {
 
+            var user = new User()
+            {
+                Email = registerDto.Email,
+                FullName = registerDto.FullName,
+                Password = registerDto.Password
+            };
+            _dbContext.User.Add(user);
+            _dbContext.SaveChanges();
+            Console.WriteLine("User Saved");
+            return RedirectToAction("Register");
+        }
     }
 
 

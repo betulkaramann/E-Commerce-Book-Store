@@ -8,6 +8,12 @@ namespace TermProject.Models
             context.Database.Migrate();
             if (context.Books.Count() == 0 && context.Categories.Count() == 0)
             {
+                User user = new User()
+                {
+                    Email = "hasaneke1000@gmail.com",
+                    Password = "123123",
+                    FullName = "Hasan Eke"
+                };
                 List<Category> dummyCategories = new List<Category>() {
                   new Category
                 {
@@ -59,6 +65,7 @@ namespace TermProject.Models
                     Category = dummyCategories[0],
                 },
                 };
+                context.User.Add(user);
                 context.Books.AddRange(dummyBooks);
                 context.Categories.AddRange(dummyCategories);
             }

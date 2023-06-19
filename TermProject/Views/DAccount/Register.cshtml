@@ -14,7 +14,7 @@
         <div>
             <div class="text-danger" asp-validation-summary="All"></div>
         </div>
-        <form method="post" asp-action="Register">
+        <form method="post" asp-action="RegisterUser">
 
             <div class="form-group my-3">
                 <label asp-for="Email"></label>
@@ -30,7 +30,7 @@
                 <label asp-for="FullName"> Name and Surname</label>
                 <input asp-for="FullName" class="form-control" />
             </div>
-            
+
             <div class="form-group my-3">
                 <label asp-for="Address"></label>
                 <input asp-for="Address" class="form-control" />
