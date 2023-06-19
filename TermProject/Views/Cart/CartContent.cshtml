@@ -1,19 +1,35 @@
 ﻿@model List<Cart>
 
 <ul class="list-group">
-    <h1>Sepet</h1>
+    <div class=row>
+        <h1>Sepet</h1>
+        <a asp-controller="Cart" asp-action="Order">
+            <button>Sipariş Ver</button>
+        </a>
+    </div>
     @foreach (Cart cart in Model)
     {
-        <li
-            class="list-group-item list-group-item-action list-group-item-info d-flex justify-content-between align-items-center">
-            <h3>@cart</h3>
-            <div>
-                <button type="btn btn-outline-info" class="badge badge-primary badge-pill" style="color:orange"
-                    asp-controller="Cart" asp-action="Increment" asp-route-id="@cart.Id">+</button>
-                <span id="border" class="badge badge-primary badge-pill" style="color:black">@cart.Count</span>
-                <span id="border" class="badge badge-primary badge-pill" style="color:orange ">-</span>
-                <span id="border" class="badge badge-primary badge-pill" style="color:black ">Delete</span>
-            </div>
-        </li>
+        @if (cart.Visible)
+        {
+            <li
+                class="list-group-item list-group-item-action list-group-item-info d-flex justify-content-between align-items-center">
+                <h3>@cart.Book</h3>
+                <div>
+                    <a asp-controller="Cart" asp-action="Increment" asp-route-id="@cart.Id">
+                        <button type="btn btn-outline-info" class="badge badge-primary badge-pill"
+                            style="color:orange">+</button>
+                    </a>
+                    <span id="border" class="badge badge-primary badge-pill" style="color:black">@cart.Count</span>
+                    <a asp-controller="Cart" asp-action="Decrement" asp-route-id="@cart.Id">
+                        <button type="btn btn-outline-info" class="badge badge-primary badge-pill"
+                            style="color:orange">-</button>
+                    </a>
+                    <a asp-controller="Cart" asp-action="Delete" asp-route-id="@cart.Id">
+                        <button type="btn btn-outline-info" class="badge badge-primary badge-pill"
+                            style="color:orange">Delete</button>
+                    </a>
+                </div>
+            </li>
+        }
     }
 </ul>

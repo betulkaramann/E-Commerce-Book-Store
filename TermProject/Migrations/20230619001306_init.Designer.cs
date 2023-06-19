@@ -12,7 +12,7 @@ using TermProject.Models;
 namespace TermProject.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230618181743_init")]
+    [Migration("20230619001306_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -122,6 +122,9 @@ namespace TermProject.Migrations
 
                     b.Property<long?>("UserId1")
                         .HasColumnType("bigint");
+
+                    b.Property<bool>("Visible")
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
@@ -252,7 +255,7 @@ namespace TermProject.Migrations
                         .IsRequired();
 
                     b.HasOne("TermProject.Models.Order", "Order")
-                        .WithMany()
+                        .WithMany("Carts")
                         .HasForeignKey("OrderId");
 
                     b.HasOne("TermProject.Models.User", "User")
@@ -290,6 +293,11 @@ namespace TermProject.Migrations
                     b.Navigation("Address");
 
                     b.Navigation("CreditCard");
+                });
+
+            modelBuilder.Entity("TermProject.Models.Order", b =>
+                {
+                    b.Navigation("Carts");
                 });
 #pragma warning restore 612, 618
         }

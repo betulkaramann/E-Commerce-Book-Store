@@ -17,5 +17,13 @@ namespace TermProject.Models
         public DbSet<Address> Addresses { get; set; }
         public DbSet<User> User { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Cart>()
+                .HasOne(e => e.Book)
+                .WithMany()
+                .HasForeignKey(e => e.BookId)
+                .IsRequired();
+        }
     }
 }

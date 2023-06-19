@@ -11,5 +11,7 @@ namespace TermProject.Models
         public double TotalPrice { get; set; }
         public int AddressId { get; set; }
         public Address Address { get; set; }
+
+        public ICollection<Cart> Carts { get; } = new List<Cart>();
     }
 }

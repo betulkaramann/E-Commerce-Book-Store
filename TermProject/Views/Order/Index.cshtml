@@ -1,0 +1,9 @@
+@model List<Order>
+
+<ul class="list-group">
+    <h3>Orders</h3>
+    @foreach (Order order in Model)
+    {
+        <h5>@order.TotalPrice</h5>
+    }
+</ul>

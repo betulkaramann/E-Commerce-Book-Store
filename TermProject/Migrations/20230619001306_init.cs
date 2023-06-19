@@ -140,7 +140,8 @@ namespace TermProject.Migrations
                     UserId1 = table.Column<long>(type: "bigint", nullable: true),
                     BookId = table.Column<int>(type: "int", nullable: false),
                     Count = table.Column<int>(type: "int", nullable: false),
-                    OrderId = table.Column<int>(type: "int", nullable: true)
+                    OrderId = table.Column<int>(type: "int", nullable: true),
+                    Visible = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
